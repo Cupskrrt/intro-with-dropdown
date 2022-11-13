@@ -6,7 +6,7 @@ import maker from '../images/client-maker.svg';
 
 export default function Sponsors() {
   return (
-    <div className='flex gap-[3rem] mt-[7rem]'>
+    <div className='flex gap-10 items-center justify-center mb-10'>
       <img
         src={databiz}
         alt="Databiz Logo"

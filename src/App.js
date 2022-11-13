@@ -7,14 +7,13 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div className="flex m-[4rem] items-center justify-center gap-[10rem]">
-        <div className='flex flex-col'>
+      <div className='lg:flex flex-row-reverse items-center justify-center gap-[10rem]'>
+        <Hero />
+        <div className='lg:flex flex-col'>
           <Text />
           <Sponsors />
         </div>
-        <Hero />
       </div>
-
     </div>
   );
 }

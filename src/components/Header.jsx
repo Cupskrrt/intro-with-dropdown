@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from '../images/logo.svg';
 import arrowdown from '../images/icon-arrow-down.svg';
 import arrowup from '../images/icon-arrow-up.svg';
+import hamburger from '../images/icon-menu.svg'
 import FeatureDropdownItem from './FeatureDropdownItem';
 import CompanyDropdownItem from './CompanyDropdownItem';
 
@@ -15,12 +16,12 @@ export default function Header() {
 
   return (
     <>
-      <div className="flex justify-between m-7 items-center font-epilogue">
+      <div className="flex justify-between m-7 items-center font-epilogue text-[.9rem]">
         <img
           src={logo}
           alt="snap logo"
         />
-        <ul className="flex gap-10 mr-[36rem] mb-[.5rem] text-gray">
+        <ul className="gap-10 mr-[36rem] mb-[.5rem] text-gray hidden lg:flex">
           <li
             className="flex gap-2 cursor-pointer"
             onClick={(e) => setFeatureOpen(!featureOpen)}>
@@ -42,9 +43,12 @@ export default function Header() {
             />
           </li>
           <li>Careers</li>
-          <li>About</li>
+          <li className='hover:cursor-pointer'>About</li>
         </ul>
-        <div className="flex gap-10 justify-center items-center text-gray">
+        <div>
+          <img src={hamburger} className="lg:hidden" />
+        </div>
+        <div className="gap-10 justify-center items-center text-gray hidden lg:flex">
           <p>Login</p>
           <button className="border-[2px] border-gray px-4 py-2 rounded-xl">
             Register
