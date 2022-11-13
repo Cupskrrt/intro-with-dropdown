@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import logo from '../images/logo.svg';
 import arrowdown from '../images/icon-arrow-down.svg';
 import arrowup from '../images/icon-arrow-up.svg';
-import hamburger from '../images/icon-menu.svg'
+import hamburger from '../images/icon-menu.svg';
+import x from '../images/icon-close-menu.svg'
 import FeatureDropdownItem from './FeatureDropdownItem';
 import CompanyDropdownItem from './CompanyDropdownItem';
+import Sidebar from './Sidebar';
 
 export default function Header() {
   const [featureOpen, setFeatureOpen] = useState(false);
   const [companyOpen, setCompanyOpen] = useState(false);
-
-  const test = () => {
-    console.log('kontol');
-  };
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
   return (
     <>
@@ -43,10 +42,14 @@ export default function Header() {
             />
           </li>
           <li>Careers</li>
-          <li className='hover:cursor-pointer'>About</li>
+          <li className="hover:cursor-pointer">About</li>
         </ul>
         <div>
-          <img src={hamburger} className="lg:hidden" />
+          <img
+            src={hamburgerOpen ? x : hamburger}
+            className="lg:hidden"
+            onClick={(e) => setHamburgerOpen(!hamburgerOpen)}
+          />
         </div>
         <div className="gap-10 justify-center items-center text-gray hidden lg:flex">
           <p>Login</p>
@@ -58,6 +61,7 @@ export default function Header() {
 
       {featureOpen && <FeatureDropdownItem />}
       {companyOpen && <CompanyDropdownItem />}
+      {hamburgerOpen && <Sidebar />}
     </>
   );
 }
